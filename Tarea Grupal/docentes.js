@@ -9,7 +9,7 @@ function agregarElemento() {
     const celular = document.getElementById("DOCE_CEL").value;
 
     datos.push({ id, apellido, nombre, email, cumple, celular });
-
+    guardarEnLocalStorage();
     limpiarCampos();
     actualizarTabla();
 }
@@ -24,6 +24,7 @@ function modificarElemento() {
         elemento.nombre = nuevoNombre;
         elemento.apellido = nuevoApellido;
         actualizarTabla();
+        guardarEnLocalStorage();
         console.log("Elemento modificado correctamente.");
     } else {
         console.log("Elemento no encontrado.");
@@ -35,21 +36,27 @@ function eliminarElemento() {
 
     datos = datos.filter(item => item.id !== idAEliminar);
     actualizarTabla();
+    guardarEnLocalStorage();
     console.log("Elemento eliminado correctamente.");
 }
 
 function visualizarElementos() {
     actualizarTabla();
+    guardarEnLocalStorage();
 }
 
+
 function cargarDatos() {
-    // Aquí podrías cargar datos desde una fuente externa
-    // Por ejemplo:
-    datos = [
-        { id: "1", apellido: "García", nombre: "Juan", email: "juan@example.com", cumple: "1990-01-01", celular: "123456789" },
-        { id: "2", apellido: "López", nombre: "María", email: "maria@example.com", cumple: "1992-05-12", celular: "987654321" }
-    ];
-    actualizarTabla();
+    // Cargar datos de ejemplo si no hay datos en localStorage
+    if (!localStorage.getItem('datos')) {
+        datos = [
+            { id: "1", apellido: "undefined ", nombre: "undefined", email: "undefined", cumpleaños: "undefined", celular: "undefined" },
+            { id: "2", apellido: "undefined ", nombre: "undefined", email: "undefined", cumpleaños: "undefined", celular: "undefined" },
+        ];
+            
+        guardarEnLocalStorage();
+        actualizarTabla();
+    }
 }
 
 function actualizarTabla() {
@@ -72,7 +79,19 @@ function limpiarCampos() {
     document.getElementById("DOCE_CEL").value = "";
 }
 
+function guardarEnLocalStorage() {
+    localStorage.setItem('datos', JSON.stringify(datos));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+
+    const storedDatos = localStorage.getItem('datos');
+     if (storedDatos) {
+         datos = JSON.parse(storedDatos);
+         actualizarTabla(); 
+         
+     }
+
     document.getElementById("agregar").addEventListener("click", agregarElemento);
     document.getElementById("modificar").addEventListener("click", modificarElemento);
     document.getElementById("eliminar").addEventListener("click", eliminarElemento);
