@@ -1,0 +1,22 @@
+.btn-orange {
+    color: #fff;
+    background-color: #ff7f00; /* Cambia este valor al color deseado */
+    border-color: #ff7f00; /* Cambia este valor al color deseado */
+}
+
+.btn-orange:hover {
+    color: #fff;
+    background-color: #cc6600; /* Cambia este valor al color deseado */
+    border-color: #cc6600; /* Cambia este valor al color deseado */
+}
+.btn-custom {
+    color: #fff;
+    background-color: #2ecc71; /* Cambia este valor al color deseado */
+    border-color: #2ecc71; /* Cambia este valor al color deseado */
+}
+
+.btn-custom:hover {
+    color: #fff;
+    background-color: #27ae60; /* Cambia este valor al color deseado */
+    border-color: #27ae60; /* Cambia este valor al color deseado */
+}

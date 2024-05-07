@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docentes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stilo.css"> <!-- Agrega el enlace a tu archivo de estilos personalizados -->
+</head>
+<body>
+    <ul>
+        <li><input type="text" maxlength="60" minlength="3" name="ID" id="DOCEID" required placeholder="ID"></li>
+        <li><input type="text" maxlength="60" minlength="3" name="Apellido" id="DOCE_APELLIDO" required placeholder="Apellido"></li>
+        <li><input type="text" maxlength="60" minlength="3" name="Nombre" id="DOCE_NOMBRE" required placeholder="Nombre"></li>
+        <li><input type="text" maxlength="60" minlength="3" name="Email" id="DOCE_EMAIL" required placeholder="Email"></li>
+        <li><input type="date" maxlength="60" minlength="3" name="Cumpleaños" id="DOCE_CUMPLE" required> </li>
+        <li><input type="text" maxlength="60" minlength="3" name="Celular" id="DOCE_CEL" required placeholder="Año"></li>
+        <li>
+            <button id="agregar" class="btn btn-primary">Agregar</button>
+            <button id="modificar" class="btn btn-warning">Modificar</button>
+            <button id="eliminar" class="btn btn-danger">Eliminar</button>
+            <button id="visualizar" class="btn btn-info">Visualizar</button>
+        </li>
+    </ul>
+    <ul>
+    </ul>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Cumpleaños</th>
+                <th>Celular</th>
+            </tr>
+        </thead>
+        <tbody id="Lista">
+        </tbody>
+    </table>
+    <script src="docentes.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

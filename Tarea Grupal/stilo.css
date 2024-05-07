@@ -1,0 +1,92 @@
+  /* Estilos generales para toda la página */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    /* Color de fondo gris claro */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    /* Color de texto negro */
+}
+
+button {
+    background-color: #007bff;
+    /* Color de fondo azul */
+    color: #fff;
+    /* Color de texto blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Color de fondo azul oscuro al pasar el mouse */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilos para las tablas */
+table {
+    background-color: #fff;
+    /* Color de fondo blanco */
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    /* Color de fondo azul para encabezados de tabla */
+    color: #fff;
+    /* Color de texto blanco para encabezados de tabla */
+}
+
+/* Estilos específicos para los formularios */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+button {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus {
+    border-color: #007bff;
+    /* Color del borde al enfocar */
+    outline: none;
+}
+
+/* Estilos para botones dentro de la misma línea */
+button+button {
+    margin-left: 10px;
+}
+
+/* Estilos para elementos dentro de las listas */
+ul li {
+    margin-bottom: 10px;
+}
