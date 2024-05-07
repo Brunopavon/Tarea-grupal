@@ -1,81 +1,100 @@
-let materias = [];
+let datos = [];
 
-function agregarMateria() {
-    const id = document.getElementById("MATEID").value;
-    const carrera = document.getElementById("CARRERAID").value;
-    const idDocente = document.getElementById("DOCEID").value;
-    const nombreMateria = document.getElementById("MATE_NAME").value;
-    const codigo = document.getElementById("MATE_CODI").value;
-    const anho = document.getElementById("MATE_ANHO").value;
+function agregarElemento() {
+    const id = document.getElementById("DOCEID").value;
+    const apellido = document.getElementById("DOCE_APELLIDO").value;
+    const nombre = document.getElementById("DOCE_NOMBRE").value;
+    const email = document.getElementById("DOCE_EMAIL").value;
+    const cumple = document.getElementById("DOCE_CUMPLE").value;
+    const celular = document.getElementById("DOCE_CEL").value;
 
-    materias.push({ id, carrera, idDocente, nombreMateria, codigo, anho });
-
+    datos.push({ id, apellido, nombre, email, cumple, celular });
+    guardarEnLocalStorage();
     limpiarCampos();
     actualizarTabla();
 }
 
-function modificarMateria() {
-    const idAModificar = prompt("Ingrese el ID de la materia a modificar:");
-    const nuevoNombre = prompt("Ingrese el nuevo nombre de la materia:");
-    const nuevoCodigo = prompt("Ingrese el nuevo código de la materia:");
+function modificarElemento() {
+    const idAModificar = prompt("Ingrese el ID del elemento a modificar:");
+    const nuevoNombre = prompt("Ingrese el nuevo nombre:");
+    const nuevoApellido = prompt("Ingrese el nuevo apellido:");
 
-    const materia = materias.find(item => item.id === idAModificar);
-    if (materia) {
-        materia.nombreMateria = nuevoNombre;
-        materia.codigo = nuevoCodigo;
+    const elemento = datos.find(item => item.id === idAModificar);
+    if (elemento) {
+        elemento.nombre = nuevoNombre;
+        elemento.apellido = nuevoApellido;
         actualizarTabla();
-        console.log("Materia modificada correctamente.");
+        guardarEnLocalStorage();
+        console.log("Elemento modificado correctamente.");
     } else {
-        console.log("Materia no encontrada.");
+        console.log("Elemento no encontrado.");
     }
 }
 
-function eliminarMateria() {
-    const idAEliminar = prompt("Ingrese el ID de la materia a eliminar:");
+function eliminarElemento() {
+    const idAEliminar = prompt("Ingrese el ID del elemento a eliminar:");
 
-    materias = materias.filter(item => item.id !== idAEliminar);
-    console.log("Materia eliminada correctamente.");
+    datos = datos.filter(item => item.id !== idAEliminar);
     actualizarTabla();
+    guardarEnLocalStorage();
+    console.log("Elemento eliminado correctamente.");
 }
 
-function visualizarMaterias() {
+function visualizarElementos() {
     actualizarTabla();
+    guardarEnLocalStorage();
 }
+
 
 function cargarDatos() {
-    // Aquí podrías cargar datos desde una fuente externa
-    // Por ejemplo:
-    materias = [
-        { id: "1", carrera: "Ingeniería Informática", idDocente: "1", nombreMateria: "Programación", codigo: "INF101", anho: "2022" },
-        { id: "2", carrera: "Ingeniería Informática", idDocente: "2", nombreMateria: "Bases de Datos", codigo: "INF102", anho: "2022" }
-    ];
-    actualizarTabla();
+    // Cargar datos de ejemplo si no hay datos en localStorage
+    if (!localStorage.getItem('datos')) {
+        datos = [
+            { id: "1", apellido: "undefined ", nombre: "undefined", email: "undefined", cumpleaños: "undefined", celular: "undefined" },
+            { id: "2", apellido: "undefined ", nombre: "undefined", email: "undefined", cumpleaños: "undefined", celular: "undefined" },
+        ];
+            
+        guardarEnLocalStorage();
+        actualizarTabla();
+    }
 }
 
 function actualizarTabla() {
     const lista = document.getElementById("Lista");
     lista.innerHTML = "";
 
-    materias.forEach(function (materia) {
+    datos.forEach(function (item) {
         const fila = document.createElement("tr");
-        fila.innerHTML = `<td>${materia.id}</td><td>${materia.carrera}</td><td>${materia.idDocente}</td><td>${materia.nombreMateria}</td><td>${materia.codigo}</td><td>${materia.anho}</td>`;
+        fila.innerHTML = `<td>${item.id}</td><td>${item.apellido}</td><td>${item.nombre}</td><td>${item.email}</td><td>${item.cumple}</td><td>${item.celular}</td>`;
         lista.appendChild(fila);
     });
 }
 
 function limpiarCampos() {
-    document.getElementById("MATEID").value = "";
-    document.getElementById("CARRERAID").value = "";
     document.getElementById("DOCEID").value = "";
-    document.getElementById("MATE_NAME").value = "";
-    document.getElementById("MATE_CODI").value = "";
-    document.getElementById("MATE_ANHO").value = "";
+    document.getElementById("DOCE_APELLIDO").value = "";
+    document.getElementById("DOCE_NOMBRE").value = "";
+    document.getElementById("DOCE_EMAIL").value = "";
+    document.getElementById("DOCE_CUMPLE").value = "";
+    document.getElementById("DOCE_CEL").value = "";
+}
+
+function guardarEnLocalStorage() {
+    localStorage.setItem('datos', JSON.stringify(datos));
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("agregar").addEventListener("click", agregarMateria);
-    document.getElementById("modificar").addEventListener("click", modificarMateria);
-    document.getElementById("eliminar").addEventListener("click", eliminarMateria);
-    document.getElementById("visualizar").addEventListener("click", visualizarMaterias);
+
+    const storedDatos = localStorage.getItem('datos');
+     if (storedDatos) {
+         datos = JSON.parse(storedDatos);
+         actualizarTabla(); 
+         
+     }
+
+    document.getElementById("agregar").addEventListener("click", agregarElemento);
+    document.getElementById("modificar").addEventListener("click", modificarElemento);
+    document.getElementById("eliminar").addEventListener("click", eliminarElemento);
+    document.getElementById("visualizar").addEventListener("click", visualizarElementos);
     document.getElementById("carga").addEventListener("click", cargarDatos);
 });
