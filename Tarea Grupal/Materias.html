@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Materias</title>
-    <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <!-- Metadatos del documento -->
+    <meta charset="UTF-8"> <!-- Conjunto de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Escala y ancho del viewport -->
+    <title>Materias</title> <!-- Título de la página -->
+    <link href="../../libs/bootstrap/css/bootstrap.min.css" rel="stylesheet"> <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link rel="stylesheet" href="style.css"> <!-- Enlace a una hoja de estilos personalizada -->
 </head>
 <body>
-    <button id="carga" class="btn btn-primary">Cargar</button>
+    <!-- Formulario para administrar materias -->
     <ul>
-        <li><input type="text" maxlength="60" minlength="3" name="ID Materia" id="MATEID" required placeholder="ID"></li>
-        <li><input type="text" maxlength="60" minlength="3" name="Carrera" id="CARRERAID" required placeholder="Carrera"></li>
-        <li><input type="text" maxlength="60" minlength="3" name="ID Docente" id="DOCEID" required placeholder="ID Docente"></li>
-        <li><input type="text" maxlength="60" minlength="3" name="Nombre Materia" id="MATE_NAME" required placeholder="Email"></li>
-        <li><input type="text" maxlength="60" minlength="3" name="Codi" id="MATE_CODI" required placeholder="Codigo"> </li>
-        <li><input type="number" maxlength="60" minlength="3" name="Año" id="MATE_ANHO" required></li>
+        <li><input type="text" maxlength="60" minlength="3" name="ID Materia" id="MATEID" required placeholder="ID"></li> <!-- Campo para ingresar el ID de la materia -->
+        <li><input type="text" maxlength="60" minlength="3" name="Carrera" id="CARRERAID" required placeholder="Carrera"></li> <!-- Campo para ingresar la carrera -->
+        <li><input type="text" maxlength="60" minlength="3" name="ID Docente" id="DOCEID" required placeholder="ID Docente"></li> <!-- Campo para ingresar el ID del docente -->
+        <li><input type="text" maxlength="60" minlength="3" name="Nombre Materia" id="MATE_NAME" required placeholder="Email"></li> <!-- Campo para ingresar el nombre de la materia -->
+        <li><input type="text" maxlength="60" minlength="3" name="Codi" id="MATE_CODI" required placeholder="Codigo"> </li> <!-- Campo para ingresar el código de la materia -->
+        <li><input type="number" maxlength="60" minlength="3" name="Año" id="MATE_ANHO" required></li> <!-- Campo para ingresar el año de la materia -->
         <li>
+            <!-- Botones para agregar, modificar, eliminar y visualizar -->
             <button id="agregar" class="btn btn-orange">Agregar</button>
-             <button id="modificar" class="btn btn-custom">Modificar</button>
+            <button id="modificar" class="btn btn-custom">Modificar</button>
             <button id="eliminar" class="btn btn-danger">Eliminar</button>
             <button id="visualizar" class="btn btn-info">Visualizar</button>
         </li>
     </ul>
+    <!-- Lista de materias -->
     <ul>
         <li> Listar </li>
     </ul>
+    <!-- Tabla para mostrar las materias -->
     <table border="1">
         <thead>
+            <!-- Encabezados de la tabla -->
             <tr><th>ID Materia</th><th>Carrera</th><th>ID Docente</th><th>Nombre Materia</th><th>Codi</th><th>Anho</th></tr>
         </thead>
+        <!-- Cuerpo de la tabla, se llenará dinámicamente con JavaScript -->
         <tbody id="Lista"></tbody>
     </table>
+    <!-- Enlace al script de Bootstrap -->
     <script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Enlace al script de funcionalidad de las materias -->
     <script src="materias.js"></script>
 </body>
 </html>
