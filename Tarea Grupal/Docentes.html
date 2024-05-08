@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docentes</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="stilo.css"> <!-- Agrega el enlace a tu archivo de estilos personalizados -->
+    <!-- Metadatos del documento -->
+    <meta charset="UTF-8"> <!-- Conjunto de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Escala y ancho del viewport -->
+    <title>Docentes</title> <!-- Título de la página -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> <!-- Enlace a la hoja de estilos de Bootstrap -->
+    <link rel="stylesheet" href="stilo.css"> <!-- Enlace a una hoja de estilos personalizada -->
 </head>
 <body>
+    <!-- Formulario para administrar docentes -->
     <ul>
-        <li><input type="text" maxlength="60" minlength="3" name="ID" id="DOCEID" required placeholder="ID"></li>
-        <li><input type="text" maxlength="60" minlength="3" name="Apellido" id="DOCE_APELLIDO" required placeholder="Apellido"></li>
-        <li><input type="text" maxlength="60" minlength="3" name="Nombre" id="DOCE_NOMBRE" required placeholder="Nombre"></li>
-        <li><input type="text" maxlength="60" minlength="3" name="Email" id="DOCE_EMAIL" required placeholder="Email"></li>
-        <li><input type="date" maxlength="60" minlength="3" name="Cumpleaños" id="DOCE_CUMPLE" required> </li>
-        <li><input type="text" maxlength="60" minlength="3" name="Celular" id="DOCE_CEL" required placeholder="Año"></li>
+        <li><input type="text" maxlength="60" minlength="3" name="ID" id="DOCEID" required placeholder="ID"></li> <!-- Campo para ingresar el ID del docente -->
+        <li><input type="text" maxlength="60" minlength="3" name="Apellido" id="DOCE_APELLIDO" required placeholder="Apellido"></li> <!-- Campo para ingresar el apellido del docente -->
+        <li><input type="text" maxlength="60" minlength="3" name="Nombre" id="DOCE_NOMBRE" required placeholder="Nombre"></li> <!-- Campo para ingresar el nombre del docente -->
+        <li><input type="text" maxlength="60" minlength="3" name="Email" id="DOCE_EMAIL" required placeholder="Email"></li> <!-- Campo para ingresar el email del docente -->
+        <li><input type="date" maxlength="60" minlength="3" name="Cumpleaños" id="DOCE_CUMPLE" required> </li> <!-- Campo para ingresar la fecha de cumpleaños del docente -->
+        <li><input type="text" maxlength="60" minlength="3" name="Celular" id="DOCE_CEL" required placeholder="Año"></li> <!-- Campo para ingresar el celular del docente -->
         <li>
+            <!-- Botones para agregar, modificar, eliminar y visualizar docentes -->
             <button id="agregar" class="btn btn-primary">Agregar</button>
             <button id="modificar" class="btn btn-warning">Modificar</button>
             <button id="eliminar" class="btn btn-danger">Eliminar</button>
@@ -24,8 +27,10 @@
     </ul>
     <ul>
     </ul>
+    <!-- Tabla para mostrar los docentes -->
     <table border="1">
         <thead>
+            <!-- Encabezados de la tabla -->
             <tr>
                 <th>ID</th>
                 <th>Apellido</th>
@@ -38,7 +43,9 @@
         <tbody id="Lista">
         </tbody>
     </table>
+    <!-- Enlace a los scripts de funcionalidad -->
     <script src="docentes.js"></script>
+    <!-- Enlaces a las bibliotecas jQuery y Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
