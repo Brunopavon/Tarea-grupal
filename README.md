@@ -1,1 +1,1 @@
-# integrantes: Bruno Pavon, Matias Aguero, David Cortesi, franco Lucheka
+# integrantes: Bruno Pavon, Marcos cabral, David Cortesi, franco Lucheka
